@@ -1,35 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 
-render() {
+import DogPen from '../components/DogPen/DogPen';
+import myDogs from './dogs';
 
+class App extends React.Component {
+  state = {
+    dogs: [],
+    employees: [],
+  }
 
-  return (
-    <button className='btn btn-danger'>HELP ME</button>
-  );
-}
+  componentDidMount() {
+    this.setState({ dogs: myDogs });
+  }
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  render() {
+    const { dogs } = this.state;
+
+    return (
+      <div className="App">
+        <div>Doggie Daycare</div>
+        <DogPen dogs={dogs} />
+      </div>
+    );
+  }
 }
 
 export default App;

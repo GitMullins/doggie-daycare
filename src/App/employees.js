@@ -19,7 +19,7 @@ const employees = [
   },
   {
     id: 'employee3',
-    name: 'Jim',
+    name: 'Ace',
     disposition: 'kind',
     imageUrl: 'http://unrealitymag.com/wp-content/uploads/2013/03/jim-carrey-ace-la-3-14-13.jpg',
     fullness: 100,

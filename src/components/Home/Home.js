@@ -23,7 +23,6 @@ class Home extends React.Component {
 
     return (
       <div className="Home">
-        <div>Doggo Daycare</div>
         <DogPen dogs={dogs} />
         <StaffRoom employees={employees} />
       </div>

@@ -5,9 +5,9 @@ import Auth from '../components/Auth/Auth';
 import MyNavbar from '../components/MyNavbar/MyNavbar';
 import Home from '../components/Home/Home';
 
-// import fbConnection from '../helpers/data/connection';
+import fbConnection from '../helpers/data/connection';
 
-// fbConnection();
+fbConnection();
 
 // import DogPen from '../components/DogPen/DogPen';
 // import myDogs from './dogs';

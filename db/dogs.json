@@ -1,0 +1,47 @@
+{
+    "dog1": {
+    "name": "Tank",
+    "disposition": "friendly",
+    "imageUrl": "https://img.buzzfeed.com/buzzfeed-static/static/enhanced/web05/2012/2/28/14/enhanced-buzz-17285-1330457152-8.jpg?downsize=800:*&output-format=auto&output-quality=auto",
+    "fullness": 88,
+    "favoriteActivity": "fetch",
+    "isVicious": true,
+    "color": "white"
+    },
+    "dog2": {
+    "name": "Hummer",
+    "disposition": "rude",
+    "imageUrl": "https://i.pinimg.com/474x/50/3c/5d/503c5dd48eef170e53b03fb75c19aa95--russell-terrier-your-dog.jpg",
+    "fullness": 50,
+    "favoriteActivity": "cuddling",
+    "isVicious": true,
+    "color": "brown"
+  },
+    "dog3": {
+    "name": "Chunky",
+    "disposition": "kind",
+    "imageUrl": "https://www.petguide.com/wp-content/uploads/2015/01/fat-dog.jpg",
+    "fullness": 100,
+    "favoriteActivity": "eating",
+    "isVicious": true,
+    "color": "white"
+  },
+    "dog4": {
+    "name": "Slim",
+    "disposition": "angry",
+    "imageUrl": "https://img.buzzfeed.com/buzzfeed-static/static/enhanced/web03/2012/2/28/14/enhanced-buzz-18428-1330456988-6.jpg?downsize=800:*&output-format=auto&output-quality=auto",
+    "fullness": 11,
+    "favoriteActivity": "chasing squirrels",
+    "isVicious": false,
+    "color": "white"
+  },
+    "dog5": {
+    "name": "Rio",
+    "disposition": "friendly",
+    "imageUrl": "https://i.pinimg.com/474x/5b/bf/0f/5bbf0f0888f61dee2dcf4a3d1815e2e4.jpg",
+    "fullness": 88,
+    "favoriteActivity": "swimming",
+    "isVicious": false,
+    "color": "black"
+  }
+}

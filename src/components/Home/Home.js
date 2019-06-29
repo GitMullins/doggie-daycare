@@ -6,6 +6,8 @@ import employeesData from '../../helpers/data/employeesData';
 import DogPen from '../DogPen/DogPen';
 // import myDogs from '../../App/dogs';
 
+import SelectEmployee from '../SelectEmployee/SelectEmployee';
+
 import StaffRoom from '../StaffRoom/StaffRoom';
 // import myEmployees from '../../App/employees';
 
@@ -34,6 +36,7 @@ class Home extends React.Component {
       <div className="Home">
         <DogPen dogs={dogs} />
         <StaffRoom employees={employees} />
+        <SelectEmployee employees={employees} />
       </div>
     );
   }

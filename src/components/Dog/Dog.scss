@@ -1,3 +1,19 @@
 .Dog {
-  display: block;
+  overflow: hidden;
+  .card {
+    background-color: #0FA3B1;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    height: 300px;
+    overflow: hidden;
+      img {
+        object-fit:scale-down;
+        height: 8em;
+        border-radius: 50%;
+      }
+      .dog-text {
+        background-color: #75DDDD;
+        border-radius: 25%;
+      }
+  }
 }

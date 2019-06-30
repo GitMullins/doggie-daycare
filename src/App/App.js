@@ -7,6 +7,8 @@ import Home from '../components/Home/Home';
 
 import fbConnection from '../helpers/data/connection';
 
+import './App.scss';
+
 fbConnection();
 
 class App extends React.Component {

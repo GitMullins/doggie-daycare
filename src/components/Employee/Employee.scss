@@ -1,0 +1,19 @@
+.Employee {
+  overflow: hidden;
+  .card {
+    background-color: #F79256;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    height: 300px;
+    overflow: hidden;
+      img {
+        object-fit:scale-down;
+        height: 8em;
+        border-radius: 50%;
+      }
+      .employee-text {
+        background-color: #FBD1A2;
+        border-radius: 25%;
+      }
+  }
+}

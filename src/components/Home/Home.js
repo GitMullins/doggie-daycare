@@ -7,6 +7,8 @@ import DogPen from '../DogPen/DogPen';
 
 import StaffRoom from '../StaffRoom/StaffRoom';
 
+import AddWalk from '../AddWalk/AddWalk';
+
 import './Home.scss';
 
 class Home extends React.Component {
@@ -24,28 +26,22 @@ class Home extends React.Component {
       .catch(err => console.error(err, 'could not get humans'));
   }
 
+  addClickEvent = (e) => {
+    const { employeeSelected } = this.props;
+    e.preventDefault();
+    // addFishToOrder(employeeSelected.value);
+    console.error(employeeSelected.value);
+  }
+
   render() {
     const { dogs } = this.state;
     const { employees } = this.state;
 
     return (
-      <div className="Home container">
+      <div className="Home">
         <DogPen dogs={dogs} />
         <StaffRoom employees={employees} />
-        <select>
-          <option value="Derek">Derek</option>
-          <option value="Mugato">Mugato</option>
-          <option value="Ace">Ace</option>
-          <option value="Ted">Ted</option>
-          <option value="Tim">Tim</option>
-        </select>
-        <select>
-          <option value="Tank">Tank</option>
-          <option value="Hummer">Hummer</option>
-          <option value="Chunky">Chunky</option>
-          <option value="Slim">Slim</option>
-          <option value="Rio">Rio</option>
-      </select>
+        <AddWalk dogs={dogs} employees={employees}/>
       </div>
     );
   }

@@ -1,32 +1,52 @@
 import React from 'react';
 
 class AddWalk extends React.Component {
-  // state = {
-  //   name: '',
-  //   date: '',
-  // }
+  state = {
+    date: '',
+    employeeId: '',
+    dogId: '',
+  }
+
+  employeeChange = (e) => {
+    this.setState({ employeeId: e.target.value });
+  }
+
+  dogChange = (e) => {
+    this.setState({ dogId: e.target.value });
+  }
+
+  dateChange = (e) => {
+    this.setState({ date: e.target.value });
+  }
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    this.props.addWalk(this.state);
+    this.setState({ date: '', employeeId: '', dogId: '' });
+  }
 
   render() {
     return (
-      <div className="AddWalk">
-        <select className="employeeSelected">
+      <form onSubmit={this.onSubmit}>
+        <select value={this.state.employeeValue} onChange={this.employeeChange}>
           <option value="Employee">Employee</option>
           {this.props.employees.map(employee => (
-            <option value={employee.name}>{employee.name}</option>
+            <option key={employee.id} value={employee.id}>{employee.name}</option>
           ))}
         </select>
-        <select className="dogSelected">
+        <select value={this.state.dogValue} onChange={this.dogChange}>
           <option value="Dog">Dog</option>
           {this.props.dogs.map(dog => (
-            <option value={dog.name}>{dog.name}</option>
+            <option key={dog.id} value={dog.id}>{dog.name}</option>
           ))}
         </select>
+        <br/>
         <label>
-          Date of walk:
-          <input type="text" placeholder="Enter date"></input>
+          Date of walk: {' '}
+          <input type="text" placeholder="Enter date" value={this.state.date} onChange={this.dateChange}></input>
         </label>
-        <button onClick={this.addClickEvent} type="button" className="btn btn-success">Save</button>
-      </div>
+        <input type="submit" value="Save" />
+      </form>
     );
   }
 }

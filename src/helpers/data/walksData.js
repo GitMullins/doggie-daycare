@@ -16,4 +16,6 @@ const getWalks = () => new Promise((resolve, reject) => {
     .catch(err => reject(err));
 });
 
+// const putWalk = (dog, employee, date) => axios.put(`${baseUrl}/walks/${orderId}.json`, updateOrder);
+
 export default { getWalks };

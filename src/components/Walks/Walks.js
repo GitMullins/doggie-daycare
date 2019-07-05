@@ -13,9 +13,9 @@ class Walks extends React.Component {
   // }
 
   render() {
-    const { walks } = this.props;
+    const { walks, dogs, employees } = this.props;
     const makeWalks = walks.map(walk => (
-      <Walk key={walk.id} walk={walk} />
+      <Walk key={walk.id} walk={walk} dogs={dogs} employees={employees}/>
     ));
     return (
       <div className="Walks d-flex flex-nowrap">

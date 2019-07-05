@@ -20,25 +20,34 @@ class Home extends React.Component {
 
   componentDidMount() {
     dogsData.getDogs()
-      .then(dogs => this.setState({ dogs }))
-      .catch(err => console.error(err, 'could not get doggos'));
-    employeesData.getEmployees()
-      .then(employees => this.setState({ employees }))
-      .catch(err => console.error(err, 'could not get humans'));
-    walksData.getWalks()
-      .then(walks => this.setState({ walks }))
-      .catch(err => console.error(err, 'could not get walks'));
+      .then((dogs) => {
+        employeesData.getEmployees()
+          .then((employees) => {
+            walksData.getWalks()
+              .then((walks) => {
+                this.setState({ dogs, employees, walks });
+              });
+          })
+          .catch(err => console.error(err, 'could not get data from Home.js'));
+      });
   }
 
   addWalk = (newWalk) => {
     const dog = this.state.dogs.find(x => x.id === newWalk.dogId);
     const employee = this.state.employees.find(x => x.id === newWalk.employeeId);
-    const finalWalk = {
-      dogName: dog.name,
-      employeeName: employee.name,
+    const walk = { walks: { ...this.state.walks } };
+    const walkObj = {
+      dogId: dog.id,
+      employeeId: employee.id,
       date: newWalk.date,
     };
-    console.error(finalWalk);
+    console.error(walk);
+    walksData.postWalk(walkObj)
+      .then(() => {
+        this.setState({ walks: [...this.state.walks, walkObj] });
+        console.error(this.state.walks);
+        // walksData.getWalks();
+      });
   }
 
   render() {

@@ -47,6 +47,14 @@ class Home extends React.Component {
       });
   }
 
+  deleteWalk = (walkId) => {
+    walksData.deleteWalk(walkId)
+      .then(() => walksData.getWalks())
+      .catch(err => console.error('error with delete request 1', err))
+      .then(walks => this.setState({ walks }))
+      .catch(err => console.error(err, 'error with delete request 2'));
+  }
+
   render() {
     const { dogs } = this.state;
     const { employees } = this.state;
@@ -56,13 +64,18 @@ class Home extends React.Component {
       <div className="Home">
         <DogPen dogs={dogs} />
         <StaffRoom employees={employees} />
-        <Walks dogs={dogs} employees={employees} walks={walks} />
+        <Walks dogs={dogs}
+        employees={employees}
+        walks={walks}
+        deleteWalk={this.deleteWalk}
+        />
         <br/>
         <AddWalk
         walks={walks}
         dogs={dogs}
         employees={employees}
         addWalk={this.addWalk}
+        deleteWalk={this.deleteWalk}
         />
       </div>
     );

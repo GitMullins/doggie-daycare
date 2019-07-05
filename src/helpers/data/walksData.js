@@ -11,11 +11,12 @@ const getWalks = () => new Promise((resolve, reject) => {
         res.data[fbkey].id = fbkey;
         walks.push(res.data[fbkey]);
       });
+      console.error(walks);
       resolve(walks);
     })
     .catch(err => reject(err));
 });
 
-// const putWalk = (dog, employee, date) => axios.put(`${baseUrl}/walks/${orderId}.json`, updateOrder);
+const postWalk = finalWalk => axios.post(`${baseUrl}/walks.json`, finalWalk);
 
-export default { getWalks };
+export default { getWalks, postWalk };

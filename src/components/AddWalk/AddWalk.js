@@ -22,7 +22,7 @@ class AddWalk extends React.Component {
   onSubmit = (e) => {
     e.preventDefault();
     this.props.addWalk(this.state);
-    this.setState({ date: '', employeeId: '', dogId: '' });
+    this.setState({ date: '' });
   }
 
   render() {

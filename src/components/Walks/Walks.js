@@ -7,6 +7,7 @@ import Walk from '../Walk/Walk';
 
 import './Walks.scss';
 
+
 class Walks extends React.Component {
   // static propTypes = {
   //   dogs: PropTypes.arrayOf(dogShape.dogShape),

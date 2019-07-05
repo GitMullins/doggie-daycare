@@ -31,10 +31,14 @@ class Home extends React.Component {
   }
 
   addWalk = (newWalk) => {
-    const findDog = this.state.dogs.find(x => x.id === newWalk.dogId);
-    const findEmployee = this.state.employees.find(x => x.id === newWalk.employeeId);
-    console.error(findDog.name);
-    console.error(findEmployee.name);
+    const dog = this.state.dogs.find(x => x.id === newWalk.dogId);
+    const employee = this.state.employees.find(x => x.id === newWalk.employeeId);
+    const finalWalk = {
+      dogName: dog.name,
+      employeeName: employee.name,
+      date: newWalk.date,
+    };
+    console.error(finalWalk);
   }
 
   render() {
@@ -46,7 +50,7 @@ class Home extends React.Component {
       <div className="Home">
         <DogPen dogs={dogs} />
         <StaffRoom employees={employees} />
-        <Walks walks={walks} />
+        <Walks walks={walks} dogs={dogs} employees={employees} />
         <br/>
         <AddWalk
         walks={walks}

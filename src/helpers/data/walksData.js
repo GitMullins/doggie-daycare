@@ -11,7 +11,6 @@ const getWalks = () => new Promise((resolve, reject) => {
         res.data[fbkey].id = fbkey;
         walks.push(res.data[fbkey]);
       });
-      console.error(walks);
       resolve(walks);
     })
     .catch(err => reject(err));

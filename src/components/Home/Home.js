@@ -35,18 +35,15 @@ class Home extends React.Component {
   addWalk = (newWalk) => {
     const dog = this.state.dogs.find(x => x.id === newWalk.dogId);
     const employee = this.state.employees.find(x => x.id === newWalk.employeeId);
-    const walk = { walks: { ...this.state.walks } };
     const walkObj = {
       dogId: dog.id,
       employeeId: employee.id,
       date: newWalk.date,
     };
-    console.error(walk);
     walksData.postWalk(walkObj)
       .then(() => {
-        this.setState({ walks: [...this.state.walks, walkObj] });
-        console.error(this.state.walks);
-        // walksData.getWalks();
+        walksData.getWalks()
+          .then(allWalks => this.setState({ walks: allWalks }));
       });
   }
 
@@ -59,7 +56,7 @@ class Home extends React.Component {
       <div className="Home">
         <DogPen dogs={dogs} />
         <StaffRoom employees={employees} />
-        <Walks walks={walks} dogs={dogs} employees={employees} />
+        <Walks dogs={dogs} employees={employees} walks={walks} />
         <br/>
         <AddWalk
         walks={walks}

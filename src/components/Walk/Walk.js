@@ -9,6 +9,13 @@ class Walk extends React.Component {
   //   dog: dogShape.dogShape,
   // }
 
+  deleteWalkEvent = (e) => {
+    const { walk, deleteWalk } = this.props;
+    e.preventDefault();
+    deleteWalk(walk.id);
+    // console.error(walk.id);
+  }
+
   render() {
     const { walk } = this.props;
     const dogObj = this.props.dogs.find(x => x.id === this.props.walk.dogId);
@@ -21,6 +28,8 @@ class Walk extends React.Component {
           <h5 className="card-title">{walk.date}</h5>
           <p>{dogObj.name}</p>
           <p>{EmployeeObj.name}</p>
+          <button className="btn btn-sm btn-warning">Edit</button>
+          <button className="btn btn-sm btn-danger" onClick={this.deleteWalkEvent}>Delete</button>
           </div>
         </div>
       </div>

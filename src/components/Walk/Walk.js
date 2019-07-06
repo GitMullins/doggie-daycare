@@ -16,6 +16,12 @@ class Walk extends React.Component {
     // console.error(walk.id);
   }
 
+  selectWalk = (e) => {
+    e.preventDefault();
+    const { walk, selectWalkToEdit } = this.props;
+    selectWalkToEdit(walk.id);
+  }
+
   render() {
     const { walk } = this.props;
     const dogObj = this.props.dogs.find(x => x.id === this.props.walk.dogId);
@@ -28,7 +34,7 @@ class Walk extends React.Component {
           <h5 className="card-title">{walk.date}</h5>
           <p>{dogObj.name}</p>
           <p>{EmployeeObj.name}</p>
-          <button className="btn btn-sm btn-warning">Edit</button>
+          <button className="btn btn-sm btn-warning" onClick={this.selectWalk}>Edit</button>
           <button className="btn btn-sm btn-danger" onClick={this.deleteWalkEvent}>Delete</button>
           </div>
         </div>

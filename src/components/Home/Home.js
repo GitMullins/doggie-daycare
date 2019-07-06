@@ -8,6 +8,7 @@ import DogPen from '../DogPen/DogPen';
 import StaffRoom from '../StaffRoom/StaffRoom';
 import Walks from '../Walks/Walks';
 import AddWalk from '../AddWalk/AddWalk';
+import EditWalk from '../EditWalk/EditWalk';
 
 import './Home.scss';
 
@@ -16,6 +17,7 @@ class Home extends React.Component {
     dogs: [],
     employees: [],
     walks: [],
+    walkEditing: {},
   }
 
   componentDidMount() {
@@ -28,7 +30,7 @@ class Home extends React.Component {
                 this.setState({ dogs, employees, walks });
               });
           })
-          .catch(err => console.error(err, 'could not get data from Home.js'));
+          .catch(err => console.error(err, 'could not get data from Home'));
       });
   }
 
@@ -55,11 +57,25 @@ class Home extends React.Component {
       .catch(err => console.error(err, 'error with delete request 2'));
   }
 
+  updateWalk = (editedWalk) => {
+    const walkId = this.state.walkEditing.id;
+    walksData.putWalk(walkId, editedWalk)
+      .then(() => {
+        this.setState({ walkEditing: {} });
+      })
+      .then(() => walksData.getWalks())
+      .then(allWalks => this.setState({ walks: allWalks }));
+  }
+
+  selectWalkToEdit = (walkId) => {
+    const selectedWalk = this.state.walks.find(x => x.id === walkId);
+    this.setState({ walkEditing: selectedWalk });
+  }
+
   render() {
     const { dogs } = this.state;
     const { employees } = this.state;
     const { walks } = this.state;
-
     return (
       <div className="Home">
         <DogPen dogs={dogs} />
@@ -68,6 +84,7 @@ class Home extends React.Component {
         employees={employees}
         walks={walks}
         deleteWalk={this.deleteWalk}
+        selectWalkToEdit={this.selectWalkToEdit}
         />
         <br/>
         <AddWalk
@@ -76,6 +93,13 @@ class Home extends React.Component {
         employees={employees}
         addWalk={this.addWalk}
         deleteWalk={this.deleteWalk}
+        />
+        <EditWalk
+        walks={walks}
+        dogs={dogs}
+        employees={employees}
+        walkEditing={this.state.walkEditing}
+        updateWalk={this.updateWalk}
         />
       </div>
     );

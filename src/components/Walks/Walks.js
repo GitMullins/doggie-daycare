@@ -23,6 +23,7 @@ class Walks extends React.Component {
       dogs={dogs}
       employees={employees}
       deleteWalk={this.props.deleteWalk}
+      selectWalkToEdit={this.props.selectWalkToEdit}
       />
     ));
     return (

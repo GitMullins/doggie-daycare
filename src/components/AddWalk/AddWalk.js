@@ -1,6 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+import dogShape from '../../helpers/propz/dogShape';
+import employeeShape from '../../helpers/propz/employeeShape';
 
 class AddWalk extends React.Component {
+  static propTypes = {
+    dogs: PropTypes.arrayOf(dogShape.dogShape),
+    employees: PropTypes.arrayOf(employeeShape.employeeShape),
+    addWalk: PropTypes.func.isRequired,
+  }
+
   state = {
     date: '',
     employeeId: '',

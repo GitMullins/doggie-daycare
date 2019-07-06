@@ -1,19 +1,24 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-// import dogShape from '../../helpers/propz/dogShape';
+import walkShape from '../../helpers/propz/walkShape';
 
 import './Walk.scss';
+import dogShape from '../../helpers/propz/dogShape';
+import employeeShape from '../../helpers/propz/employeeShape';
 
 class Walk extends React.Component {
-  // static propTypes = {
-  //   dog: dogShape.dogShape,
-  // }
+  static propTypes = {
+    walk: walkShape.walkShape,
+    dogs: PropTypes.arrayOf(dogShape.dogShape),
+    employees: PropTypes.arrayOf(employeeShape.employeeShape),
+    deleteWalk: PropTypes.func.isRequired,
+  }
 
   deleteWalkEvent = (e) => {
     const { walk, deleteWalk } = this.props;
     e.preventDefault();
     deleteWalk(walk.id);
-    // console.error(walk.id);
   }
 
   selectWalk = (e) => {

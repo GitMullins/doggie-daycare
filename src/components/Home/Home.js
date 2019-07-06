@@ -80,6 +80,7 @@ class Home extends React.Component {
       <div className="Home">
         <DogPen dogs={dogs} />
         <StaffRoom employees={employees} />
+        <h1>Scheduled Walks</h1>
         <Walks dogs={dogs}
         employees={employees}
         walks={walks}
@@ -87,6 +88,7 @@ class Home extends React.Component {
         selectWalkToEdit={this.selectWalkToEdit}
         />
         <br/>
+        <h3>Add a Walk</h3>
         <AddWalk
         walks={walks}
         dogs={dogs}
